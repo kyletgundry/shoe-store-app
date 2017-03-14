@@ -1,17 +1,19 @@
 <h1>Add New Shoe:</h1>
 
 <%= form_tag "/shoes/create", method: :post do %>
-  <div>
-    Brand Name: <input type="text" name="brand">
+  <div class="form-group">
+    Brand Name: <input type="text" name="brand" class="form-control" placeholder="Brand">
   </div>
-  <div>
-    Price: <input type="text" name="price">
+  <div class="form-group">
+    Price: <input type="text" name="price" class="form-control" placeholder="Price">
   </div>
-  <div>
-    Image: <input type="text" name="image">
+  <div class="form-group">
+    Image: <input type="text" name="image" class="form-control" placeholder="Image">
   </div>
-  <div>
-    Description: <input type="text" name="description">
+  <div class="form-group">
+    Description: <input type="text" name="description" class="form-control" placeholder="Description">
   </div>
-  <input type="submit" value="Add Shoe">
+  <input type="submit" value="Add Shoe" class="btn btn-default">
 <% end %>
+<p></p>
+<div><a href="/shoes" class="btn btn-default">Cancel</a></div>

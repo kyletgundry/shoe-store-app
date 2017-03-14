@@ -1,19 +1,19 @@
 <h1>Update your shoe:</h1>
 
 <%= form_tag "/shoes/#{@shoe.id}", method: :patch do %>
-  <div>
-    Brand Name: <input type="text" name="brand" value="<%= @shoe.brand %>">
+  <div class="form-group">
+    Brand Name: <input type="text" name="brand" value="<%= @shoe.brand %>" class="form-control">
   </div>
-  <div>
-    Price: <input type="text" name="price" value="<%= @shoe.price %>">
+  <div class="form-group">
+    Price: <input type="text" name="price" value="<%= @shoe.price %>" class="form-control">
   </div>
-  <div>
-    Image: <input type="text" name="image" value="<%= @shoe.image %>">
+  <div class="form-group">
+    Image: <input type="text" name="image" value="<%= @shoe.image %>" class="form-control">
   </div>
-  <div>
-    Description: <input type="text" name="description" value="<%= @shoe.description %>">
+  <div class="form-group">
+    Description: <input type="text" name="description" value="<%= @shoe.description %>" class="form-control">
   </div>
-  <input type="submit" value="Update Shoe">
+  <input type="submit" value="Update Shoe" class="btn btn-default">
 <% end %>
-
-<a href="/shoes">Cancel</a>
+<p></p>
+<a href="/shoes" class="btn btn-default">Cancel</a>

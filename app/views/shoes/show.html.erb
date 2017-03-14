@@ -5,14 +5,15 @@
   <h3>Price:</h3>
   <p>$<%= @shoe.price %></p>
   <h3>Image:</h3>
-  <p><%= @shoe.image %></p>
+  <p><img src="<%= @shoe.image %>" alt=""></p>
   <h3>Description:</h3>
   <p><%= @shoe.description %></p>
 
-<a href="/shoes">Back to All Shoes</a>
+<a href="/shoes" class="btn btn-default">Back to All Shoes</a>
+<p></p>
 
 <%= form_tag "/shoes/#{@shoe.id}", method: :delete do %>
 <input type="submit" value="Remove Shoe">
 <% end %>
-
-<a href="/shoes/<%= @shoe.id %>/edit">Update Shoe</a>
+<p></p>
+<a href="/shoes/<%= @shoe.id %>/edit" class="btn btn-default">Update Shoe</a>

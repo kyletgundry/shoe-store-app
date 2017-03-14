@@ -17,7 +17,8 @@ class ShoesController < ApplicationController
       description: params[:description]
       )
     shoe.save
-    render "create.html.erb"
+    flash[:success] = "You successfully added a shoe!"
+    redirect_to "/shoes/#{shoe.id}"
   end
   def show
     @shoe = Shoe.find_by(id: params[:id])
@@ -36,14 +37,14 @@ class ShoesController < ApplicationController
     @shoe.image = params[:image]
     @shoe.description = params[:description]
     @shoe.save
-    render "update.html.erb"
+    flash[:success] = "You successfully updated a shoe!"
+    redirect_to "/shoes/#{@shoe.id}"
   end
 
   def destroy
     @shoe = Shoe.find_by(id: params[:id])
     @shoe.destroy
-    render "delete.html.erb"
+    flash[:danger] = "You successfully deleted the shoe!"
+    redirect_to "/shoes"
   end
-
-
 end
