@@ -1,0 +1,19 @@
+<h1>Update your shoe:</h1>
+
+<%= form_tag "/shoes/#{@shoe.id}", method: :patch do %>
+  <div>
+    Brand Name: <input type="text" name="brand" value="<%= @shoe.brand %>">
+  </div>
+  <div>
+    Price: <input type="text" name="price" value="<%= @shoe.price %>">
+  </div>
+  <div>
+    Image: <input type="text" name="image" value="<%= @shoe.image %>">
+  </div>
+  <div>
+    Description: <input type="text" name="description" value="<%= @shoe.description %>">
+  </div>
+  <input type="submit" value="Update Shoe">
+<% end %>
+
+<a href="/shoes">Cancel</a>

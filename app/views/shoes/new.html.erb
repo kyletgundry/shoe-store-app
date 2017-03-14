@@ -1,0 +1,17 @@
+<h1>Add New Shoe:</h1>
+
+<%= form_tag "/shoes/create", method: :post do %>
+  <div>
+    Brand Name: <input type="text" name="brand">
+  </div>
+  <div>
+    Price: <input type="text" name="price">
+  </div>
+  <div>
+    Image: <input type="text" name="image">
+  </div>
+  <div>
+    Description: <input type="text" name="description">
+  </div>
+  <input type="submit" value="Add Shoe">
+<% end %>

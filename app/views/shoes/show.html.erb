@@ -1,0 +1,18 @@
+<h1>Here is your Shoe:</h1>
+
+  <h3>Brand:</h3>
+  <p><%= @shoe.brand %></p></a>
+  <h3>Price:</h3>
+  <p>$<%= @shoe.price %></p>
+  <h3>Image:</h3>
+  <p><%= @shoe.image %></p>
+  <h3>Description:</h3>
+  <p><%= @shoe.description %></p>
+
+<a href="/shoes">Back to All Shoes</a>
+
+<%= form_tag "/shoes/#{@shoe.id}", method: :delete do %>
+<input type="submit" value="Remove Shoe">
+<% end %>
+
+<a href="/shoes/<%= @shoe.id %>/edit">Update Shoe</a>

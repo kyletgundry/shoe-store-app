@@ -1,0 +1,16 @@
+<h1>Here are all your shoes:</h1>
+
+<% @shoes.each do |shoe| %>
+  <h3>Brand:</h3>
+  <a href="/shoes/<%= shoe.id %>"><p><%= shoe.brand %></p></a>
+  <h3>Price:</h3>
+  <p>$<%= shoe.price %></p>
+  <h3>Image:</h3>
+  <p><%= shoe.image %></p>
+  <h3>Description:</h3>
+  <p><%= shoe.description %></p>
+  <a href="/shoes/<%= shoe.id %>/edit">Update Shoe</a>
+  <p>_____________________________________________</p>
+<% end %>
+
+<a href="/shoes/new">Add a New Shoe</a>
