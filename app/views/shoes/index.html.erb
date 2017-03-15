@@ -1,23 +1,26 @@
-<h1>Here are all your shoes:</h1>
+<!--    @shoes.each_slice(3) do |three_shoes|  -->
+<div class="row">
+  <% @shoes.each do |shoe| %>  <!-- change @shoes.each to three_shoes -->
+  <div class="col-md-4">
+    <div class="well">
+      <h3>Brand:</h3>
+      <a href="/shoes/<%= shoe.id %>"><p><%= shoe.brand %></p></a>
+      <h3>Price:</h3>
+      <p>$<%= shoe.price %></p>
+      <h3>Image:</h3>
+      <p><img src="<%= shoe.image %>" alt="Shoe Image"></p>
+      <h3>Description:</h3>
+      <p><%= shoe.description %></p>
 
-<a href="/shoes/new" class="btn btn-default">Add a New Shoe</a>
-
-<% @shoes.each do |shoe| %>
-  <h3>Brand:</h3>
-  <a href="/shoes/<%= shoe.id %>"><p><%= shoe.brand %></p></a>
-  <h3>Price:</h3>
-  <p>$<%= shoe.price %></p>
-  <h3>Image:</h3>
-  <p><img src="<%= shoe.image %>" alt="Shoe Image" style="size: 260x180px;"></p>
-  <h3>Description:</h3>
-  <p><%= shoe.description %></p>
-  
-<%= form_tag "/shoes/#{shoe.id}", method: :delete do %>
-<input type="submit" value="Remove Shoe">
-<% end %>
-<p></p>
-  <a href="/shoes/<%= shoe.id %>/edit" class="btn btn-default" >Update Shoe</a>
-  <p>_____________________________________________</p>
-<% end %>
+      <%= form_tag "/shoes/#{shoe.id}", method: :delete do %>
+      <input type="submit" value="Remove Shoe">
+      <% end %>
+      <p></p>
+      <a href="/shoes/<%= shoe.id %>/edit" class="btn btn-default" >Update Shoe</a>
+    </div>
+  </div>
+  <% end %>
+  <!--      end  -->
+</div>
 
 <form action=""></form>
