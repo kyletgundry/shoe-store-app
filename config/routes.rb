@@ -9,4 +9,11 @@ Rails.application.routes.draw do
   delete "/shoes/:id" => "shoes#destroy"
   get "/random_product" => "shoes#random"
   post "/shoes_search" => "shoes#search"
+  get "/suppliers" => "suppliers#index"
+  get "/suppliers/new" => "suppliers#new"
+  get "/suppliers/create" => "suppliers#create"
+  get "/suppliers/:id" => "suppliers#show"
+  get "/suppliers/:id/edit" => "suppliers#edit"
+  patch "/suppliers/:id" => "suppliers#update"
+  delete "/suppliers/:id" => "suppliers#destroy"
 end

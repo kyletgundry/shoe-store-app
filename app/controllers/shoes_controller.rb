@@ -33,6 +33,7 @@ class ShoesController < ApplicationController
     @shoe = Shoe.all.sample
     render "show.html.erb"
   end
+  
   def show
     if params[:id] == "ramdom"
       @shoe = Shoe.all.sample

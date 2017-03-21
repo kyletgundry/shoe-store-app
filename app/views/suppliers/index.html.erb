@@ -1,0 +1,19 @@
+<p><a href="/suppliers/new" class="btn btn-default">Add Supplier</a></p>
+<div class="row">
+  <% @suppliers.each do |supplier| %>  <!-- change @shoes.each to three_shoes -->
+  <div class="col-md-4">
+    <div class="well">
+      <h3>Name:</h3>
+      <a href="/suppliers/<%= supplier.id %>"><p><%= supplier.name %></p></a>
+      <h3>Email:</h3>
+      <p><%= supplier.email %></p>
+      <h3>Phone:</h3>
+      <p><%= supplier.phone %></p>
+
+      <p></p>
+      <a href="/suppliers/<%= supplier.id %>/edit" class="btn btn-default" >Update Supplier</a>
+    </div>
+  </div>
+  <% end %>
+  <!--      end -->
+</div>

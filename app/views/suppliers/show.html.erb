@@ -1,0 +1,17 @@
+<h1>Here is your Supplier:</h1>
+
+  <h3>Name:</h3>
+  <p><%= @supplier.name %></p></a>
+  <h3>Email:</h3>
+  <p><%= @supplier.email %></p>
+  <h3>Phone:</h3>
+  <p><%= @supplier.phone %></p>
+
+<a href="/suppliers" class="btn btn-default">Back to All Suppliers</a>
+<p></p>
+
+<%= form_tag "/suppliers/#{@supplier.id}", method: :delete do %>
+<input type="submit" value="Remove Supplier">
+<% end %>
+<p></p>
+<a href="/suppliers/<%= @supplier.id %>/edit" class="btn btn-default">Update Supplier</a>
