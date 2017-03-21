@@ -3,7 +3,12 @@
   <h3>Brand:</h3>
   <p><%= @shoe.brand %></p></a>
   <h3>Price:</h3>
-  <p>$<%= @shoe.price %></p>
+    <% if @shoe.discounted? %>
+      <p>Discounted Item!!!</p>
+      <p class="discount-item">Price: $<%= @shoe.price %></p>
+    <% else %>
+      <p>Price: $<%= @shoe.price %></p>
+    <% end %>
   <h3>Image:</h3>
   <p><img src="<%= @shoe.image %>" alt=""></p>
   <h3>Description:</h3>
