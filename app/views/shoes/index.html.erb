@@ -1,14 +1,15 @@
 <!--    @shoes.each_slice(3) do |three_shoes|  -->
+<p><a href="/images/new" class="btn btn-default">Add Image</a></p><p><a href="/images" class="btn btn-default">Images</a></p>
 <div class="row">
   <% @shoes.each do |shoe| %>  <!-- change @shoes.each to three_shoes -->
   <div class="col-md-4">
     <div class="well">
       <h3>Brand:</h3>
       <a href="/shoes/<%= shoe.id %>"><p><%= shoe.brand %></p></a>
+      <h3>Image:</h3>
+      <img src="<%= shoe.images.first.url %>" alt="">
       <h3>Price:</h3>
       <p>$<%= shoe.price %></p>
-      <h3>Image:</h3>
-      <p><img src="<%= shoe.image %>" alt="Shoe Image"></p>
       <h3>Description:</h3>
       <p><%= shoe.description %></p>
 

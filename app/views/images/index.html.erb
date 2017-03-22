@@ -1,0 +1,17 @@
+<p><a href="/images/new" class="btn btn-default">Add Image</a></p>
+<div class="row">
+  <% @images.each do |image| %>  <!-- change @shoes.each to three_shoes -->
+  <div class="col-md-4">
+    <div class="well">
+      <h3>Image:</h3>
+      <img src="<%= image.url %>" alt="">
+      <h3>Shoe ID:</h3>
+      <%= image.shoe_id %>
+
+      <p></p>
+      <a href="/images/<%= image.id %>/edit" class="btn btn-default" >Update Image</a>
+    </div>
+  </div>
+  <% end %>
+  <!--      end -->
+</div>

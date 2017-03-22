@@ -9,12 +9,15 @@
     <% else %>
       <p>Price: $<%= @shoe.price %></p>
     <% end %>
-  <h3>Image:</h3>
-  <p><img src="<%= @shoe.image %>" alt=""></p>
   <h3>Description:</h3>
   <p><%= @shoe.description %></p>
   <h3>Made By:</h3>
   <p><%= @shoe.supplier.name %></p></a>
+  <h3>Images:</h3>
+  <p><% @shoe.images.each do |image| %></p>
+    <p><img src="<%= image.url %>" alt=""></p>
+  <% end %>
+<p></p>
 
 <a href="/shoes" class="btn btn-default">Back to All Shoes</a>
 <p></p>

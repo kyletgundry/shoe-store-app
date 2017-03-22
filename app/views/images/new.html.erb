@@ -1,0 +1,13 @@
+<h1>Add New Image:</h1>
+
+<%= form_tag "/images/create", method: :post do %>
+  <div class="form-group">
+    URL: <input type="text" name="url" class="form-control" placeholder="URL">
+  </div>
+    <div class="form-group">
+    Shoe ID: <input type="text" name="shoe_id" class="form-control" placeholder="Shoe ID">
+  </div>
+  <input type="submit" value="Add Image" class="btn btn-default">
+<% end %>
+<p></p>
+<div><a href="/images" class="btn btn-default">Cancel</a></div>

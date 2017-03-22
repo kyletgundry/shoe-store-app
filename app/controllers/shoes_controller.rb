@@ -21,8 +21,8 @@ class ShoesController < ApplicationController
     shoe = Shoe.new(
       brand: params[:brand],
       price: params[:price],
-      image: params[:image],
-      description: params[:description]
+      description: params[:description],
+      supplier_id: params[:supplier_id]
       )
     shoe.save
     flash[:success] = "You successfully added a shoe!"
@@ -56,8 +56,8 @@ class ShoesController < ApplicationController
     @shoe = Shoe.find_by(id: params[:id])
     @shoe.brand = params[:brand]
     @shoe.price = params[:price]
-    @shoe.image = params[:image]
     @shoe.description = params[:description]
+    @shoe.supplier_id = params[:supplier_id]
     @shoe.save
     flash[:success] = "You successfully updated a shoe!"
     redirect_to "/shoes/#{@shoe.id}"
