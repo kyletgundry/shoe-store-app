@@ -15,7 +15,7 @@
   <p><%= @shoe.supplier.name %></p></a>
   <h3>Images:</h3>
   <p><% @shoe.images.each do |image| %></p>
-    <p><img src="<%= image.url %>" alt=""></p>
+    <p><img src="<%= image.url %>" alt="" class="image-responsive"></p>
   <% end %>
 <p></p>
 

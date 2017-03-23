@@ -18,15 +18,21 @@ class ShoesController < ApplicationController
   end
 
   def create
-    shoe = Shoe.new(
+    @shoe = Shoe.new(
       brand: params[:brand],
       price: params[:price],
       description: params[:description],
       supplier_id: params[:supplier_id]
       )
-    shoe.save
+    @shoe.save
+
+    image = Image.new(
+      url: params[:image],
+      shoe_id: @shoe.id
+      )
+    image.save
     flash[:success] = "You successfully added a shoe!"
-    redirect_to "/shoes/#{shoe.id}"
+    redirect_to "/shoes/#{@shoe.id}"
   end
 
   def random

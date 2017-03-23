@@ -10,6 +10,10 @@
 
       <p></p>
       <a href="/images/<%= image.id %>/edit" class="btn btn-default" >Update Image</a>
+      <p></p>
+      <%= form_tag "/images/#{image.id}", method: :delete do %>
+      <input type="submit" value="Remove Image">
+      <% end %>
     </div>
   </div>
   <% end %>
