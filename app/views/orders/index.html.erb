@@ -1,0 +1,39 @@
+
+<div class="row">
+  <%= @orders.each do |order| %>
+    <div class="col-md-4">
+      <div class="well">
+      <h3>Order Information:</h3>
+
+      <h3>Order ID:</h3>
+      <a href="/orders/<%= order.id %>"><%= order.id %></a>
+
+      <h3>Shoe:</h3>
+      <%= order.shoe.brand %>
+
+      <h3>Image:</h3>
+      <img src="<%= order.shoe.images.first.url %>" alt="">
+
+      <h3>Email:</h3>
+      <%= order.user.email %>
+
+      <h3>Order Time:</h3>
+      <%= order.created_time %>
+
+      <h3>Shoe ID:</h3>
+      <%= order.shoe_id %>
+
+      <h3>Quantity:</h3>
+      <%= order.quantity %>
+
+      <h3>Subtotal: $<%= order.subtotal %></h3>
+
+      <h3>Tax: $<%= order.tax %></h3>
+
+      <p>___________________________</p>
+
+      <h3>Total: $<%= order.total %></h3>
+      </div>
+    </div>
+  <% end %>
+</div>

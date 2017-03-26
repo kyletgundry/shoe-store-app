@@ -18,7 +18,16 @@
     <p><img src="<%= image.url %>" alt="" class="image-responsive"></p>
   <% end %>
 <p></p>
+<%= form_tag "/orders/#{@shoe.id}", method: :post do %>
+  <div>
+  <label for="quantity">Quantity:</label>
+  <input type="text" name="quantity">
+  </div>
+  <input type="submit" value="Buy Now">
+<% end %>
+<p></p>
 
+<p></p>
 <a href="/shoes" class="btn btn-default">Back to All Shoes</a>
 <p></p>
 
