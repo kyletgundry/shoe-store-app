@@ -1,12 +1,12 @@
 
 <div class="row">
-  <%= @orders.each do |order| %>
+  <% @orders.each do |order| %>
     <div class="col-md-4">
       <div class="well">
       <h3>Order Information:</h3>
 
       <h3>Order ID:</h3>
-      <a href="/orders/<%= order.id %>"><%= order.id %></a>
+      <a href="/orders/<%= order.id %>"><%= 139482345 + order.id.to_i %></a>
 
       <h3>Shoe:</h3>
       <%= order.shoe.brand %>

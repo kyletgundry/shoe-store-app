@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get "/logout" => "sessions#destroy"
 
   get "/orders" => "orders#index"
-  post "/orders/:shoe_id" => "orders#create"
+  post "/orders" => "orders#create"
   get "/orders/:id" => "orders#show"
   
 end

@@ -18,10 +18,14 @@
     <p><img src="<%= image.url %>" alt="" class="image-responsive"></p>
   <% end %>
 <p></p>
-<%= form_tag "/orders/#{@shoe.id}", method: :post do %>
+<%= form_tag "/orders", method: :post do %>
   <div>
   <label for="quantity">Quantity:</label>
   <input type="text" name="quantity">
+  </div>
+  <div>
+  <label for="shoe_id">Shoe ID:</label>
+  <input type="hidden" value=<%= @shoe.id %> name="shoe_id"
   </div>
   <input type="submit" value="Buy Now">
 <% end %>
