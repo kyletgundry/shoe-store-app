@@ -36,6 +36,10 @@
                 <li><a href="/shoes/random">Random Shoe</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li>
+                <% Category.all.each do |category| %>
+                <li><a href="/shoes?category=<%= category.name %>"><%= category.name %></a></li>
+                <% end %>
+              <li class="divider"></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>

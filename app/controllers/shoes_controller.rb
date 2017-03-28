@@ -5,6 +5,9 @@ class ShoesController < ApplicationController
       @shoes = Shoe.where("brand ILIKE ?", "%" + params[:search] + "%")
     elsif params[:discounted] == "true"
       @shoes = Shoe.where("price < ?", 50)
+    elsif params[:category]
+      category = Category.find_by(name: params[:category])
+      @shoes = category.shoes
     else
       sort_attribute = params[:sort_by] || "brand"
       sort_attribute_order = params[:sort_order] || "asc"
@@ -45,6 +48,7 @@ class ShoesController < ApplicationController
       @shoe = Shoe.all.sample
     else
       @shoe = Shoe.find_by(id: params[:id])
+      # @categories = @shoe.categories - if you don't want this to be added to the html
     end
     render "show.html.erb"
   end
