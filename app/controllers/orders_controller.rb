@@ -6,21 +6,24 @@ class OrdersController < ApplicationController
   end
 
   def create
-    shoe = Shoe.find_by(id: params[:shoe_id])
-    subtotal = params[:quantity].to_i * shoe.price
+    @carted_shoes = current_user.carted_shoes.where(status: "carted")
+    subtotal = @carted_shoes.inject(0) {|sum, carted_shoe| sum + (carted_shoe.quantity * carted_shoe.shoe.price)}
     tax = subtotal * 0.09
     total = subtotal + tax
-    order = Order.new(
-      quantity: params[:quantity],
+    @order = Order.new(
       user_id: current_user.id,
-      shoe_id: params[:shoe_id],
       subtotal: subtotal,
       tax: tax,
       total: total
       )
   
-    order.save
-    redirect_to "/orders/#{order.id}"
+    @order.save
+    @carted_shoes.each do |carted_shoe|
+      carted_shoe.order_id = @order.id
+      carted_shoe.status = "purchased"
+      carted_shoe.save
+    end
+    redirect_to "/orders/#{@order.id}"
     # render "show.html.erb" if you use @ in the order for create method
   end
 

@@ -1,0 +1,29 @@
+<h3>Cart Information:</h3>
+<% @carted_shoes.each do |cart| %>
+<div class="well">
+<h3>Shoe:</h3>
+<%= cart.shoe.brand %>
+
+<h3>Image:</h3>
+<img src="<%= cart.shoe.images.first.url %>" alt="">
+
+
+<h3>Cart ID:</h3>
+<%= cart.id %>
+
+<h3>Shoe ID:</h3>
+<%= cart.shoe_id %>
+
+<h3>Quantity:</h3>
+<%= cart.quantity %>
+</div>
+<% end %>
+
+<%= form_tag "/orders", method: :post do %>
+  <input type="submit" value="Buy Now">
+<% end %>
+<p></p>
+
+
+
+<a href="/" class="btn btn-default">Home</a>
