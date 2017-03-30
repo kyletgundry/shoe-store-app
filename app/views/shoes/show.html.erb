@@ -22,24 +22,28 @@
     <p><img src="<%= image.url %>" alt="" class="image-responsive"></p>
   <% end %>
 <p></p>
-<%= form_tag "/cart", method: :post do %>
-  <div>
-  <label for="quantity">Quantity:</label>
-  <input type="text" name="quantity">
-  </div>
-  <div>
-  <input type="hidden" value="<%= @shoe.id %>" name="shoe_id"
-  </div>
-  <input type="submit" value="Add To Cart">
+<% if current_user && current_user.admin %>
+  <%= form_tag "/carted_shoes", method: :post do %>
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input type="text" name="quantity">
+    </div>
+    <div>
+      <input type="hidden" value="<%= @shoe.id %>" name="shoe_id">
+    </div>
+      <input type="submit" value="Add To Cart">
+    <% end %>
+  <p></p>
 <% end %>
-<p></p>
-
 <p></p>
 <a href="/shoes" class="btn btn-default">Back to All Shoes</a>
 <p></p>
+<% if current_user && current_user.admin %>
+  <%= form_tag "/shoes/#{@shoe.id}", method: :delete do %>
+  <input type="submit" value="Remove Shoe">
+  <% end %>
 
-<%= form_tag "/shoes/#{@shoe.id}", method: :delete do %>
-<input type="submit" value="Remove Shoe">
+  <p></p>
+  <a href="/shoes/<%= @shoe.id %>/edit" class="btn btn-default">Update Shoe</a>
+
 <% end %>
-<p></p>
-<a href="/shoes/<%= @shoe.id %>/edit" class="btn btn-default">Update Shoe</a>

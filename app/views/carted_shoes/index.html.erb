@@ -1,26 +1,31 @@
 <h3>Cart Information:</h3>
-<% @carted_shoes.each do |cart| %>
-<div class="well">
-<h3>Shoe:</h3>
-<%= cart.shoe.brand %>
+    <% @carted_shoes.each do |carted_shoe| %>
+      <div class="well">
+      <h3>Shoe:</h3>
+      <%= carted_shoe.shoe.brand %>
 
-<h3>Image:</h3>
-<img src="<%= cart.shoe.images.first.url %>" alt="">
+      <h3>Image:</h3>
+      <img src="<%= carted_shoe.shoe.images.first.url %>" alt="">
 
 
-<h3>Cart ID:</h3>
-<%= cart.id %>
+      <h3>Cart ID:</h3>
+      <%= carted_shoe.id %>
 
-<h3>Shoe ID:</h3>
-<%= cart.shoe_id %>
+      <h3>Shoe ID:</h3>
+      <%= carted_shoe.shoe_id %>
 
-<h3>Quantity:</h3>
-<%= cart.quantity %>
-</div>
-<% end %>
+      <h3>Quantity:</h3>
+      <%= carted_shoe.quantity %>
+
+      <%= form_tag "/carted_shoes/#{carted_shoe.id}", method: :delete do %>
+      <input type="submit" class="btn-btn-default" value="Remove From Cart">
+      <% end %>
+      </div>
+    <% end %>
+  <% else %>
 
 <%= form_tag "/orders", method: :post do %>
-  <input type="submit" value="Buy Now">
+  <input type="submit" class="btn-btn-default" value="Buy Now">
 <% end %>
 <p></p>
 
