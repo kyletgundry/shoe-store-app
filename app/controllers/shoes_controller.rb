@@ -18,6 +18,7 @@ class ShoesController < ApplicationController
   end
 
   def new
+    @shoe = Shoe.new
     render "new.html.erb"
   end
 
@@ -28,15 +29,18 @@ class ShoesController < ApplicationController
       description: params[:description],
       supplier_id: params[:supplier_id]
       )
-    @shoe.save
+    if @shoe.save
 
-    image = Image.new(
-      url: params[:image],
-      shoe_id: @shoe.id
-      )
-    image.save
-    flash[:success] = "You successfully added a shoe!"
-    redirect_to "/shoes/#{@shoe.id}"
+      image = Image.new(
+        url: params[:image],
+        shoe_id: @shoe.id
+        )
+      image.save
+      flash[:success] = "You successfully added a shoe!"
+      redirect_to "/shoes/#{@shoe.id}"
+    else
+      render "new.html.erb"
+    end
   end
 
   def random
@@ -69,9 +73,12 @@ class ShoesController < ApplicationController
     @shoe.price = params[:price]
     @shoe.description = params[:description]
     @shoe.supplier_id = params[:supplier_id]
-    @shoe.save
-    flash[:success] = "You successfully updated a shoe!"
-    redirect_to "/shoes/#{@shoe.id}"
+    if @shoe.save
+      flash[:success] = "You successfully updated a shoe!"
+      redirect_to "/shoes/#{@shoe.id}"
+    else
+      render "edit.html.erb"
+    end
   end
 
   def destroy

@@ -6,6 +6,13 @@ class Shoe < ApplicationRecord
   has_many :carted_shoes
   has_many :users, through: :carted_shoes
   has_many :orders, through: :carted_shoes
+
+  validates :brand, presence: true
+  validates :brand, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :description, presence: true
+  validates :description, length: { maximum: 500 }
   
   def discounted?
     if price.to_f < 50
