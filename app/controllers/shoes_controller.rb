@@ -1,4 +1,5 @@
 class ShoesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
 
   def index
     if params[:search]
@@ -17,18 +18,10 @@ class ShoesController < ApplicationController
   end
 
   def new
-    unless current_user && current_user.admin
-      redirect_to "/"
-      return
-    end
     render "new.html.erb"
   end
 
   def create
-    unless current_user && current_user.admin
-      redirect_to "/"
-      return
-    end
     @shoe = Shoe.new(
       brand: params[:brand],
       price: params[:price],
@@ -66,19 +59,11 @@ class ShoesController < ApplicationController
 #    render "index.html.erb"
 #  end
   def edit
-    unless current_user && current_user.admin
-      redirect_to "/"
-      return
-    end
     @shoe = Shoe.find_by(id: params[:id])
     render "edit.html.erb"
   end
 
   def update
-    unless current_user && current_user.admin
-      redirect_to "/"
-      return
-    end
     @shoe = Shoe.find_by(id: params[:id])
     @shoe.brand = params[:brand]
     @shoe.price = params[:price]
@@ -90,10 +75,6 @@ class ShoesController < ApplicationController
   end
 
   def destroy
-    unless current_user && current_user.admin
-      redirect_to "/"
-      return
-    end
     @shoe = Shoe.find_by(id: params[:id])
     @shoe.destroy
     flash[:danger] = "You successfully deleted the shoe!"

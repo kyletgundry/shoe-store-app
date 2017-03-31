@@ -1,4 +1,6 @@
 class CartedShoesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     carted_shoe = CartedShoe.new(
       quantity: params[:quantity],
