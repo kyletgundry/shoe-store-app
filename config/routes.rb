@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   get "/shoes" => "shoes#index"
   get "/shoes/new" => "shoes#new"
   post "/shoes" => "shoes#create"
-  get "/shoes/:id" => "shoes#show"
+  get "/random_product" => "shoes#random"
+  get "/shoes/:id", to: "shoes#show", as: "shoe"
   get "/shoes/:id/edit" => "shoes#edit"
   patch "/shoes/:id" => "shoes#update"
   delete "/shoes/:id" => "shoes#destroy"
-  get "/random_product" => "shoes#random"
   
   post "/shoes_search" => "shoes#search"
   get "/suppliers" => "suppliers#index"

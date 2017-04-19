@@ -6,6 +6,7 @@
   <div class="col-md-4">
     <div class="well">
       <h3>Brand:</h3>
+      <%= link_to "Shoe Record", shoe_path(shoe) %>
       <a href="/shoes/<%= shoe.id %>"><p><%= shoe.brand %></p></a>
       <h3>Image:</h3>
       <img src="<%= shoe.images.first.url %>" alt="">

@@ -73,6 +73,15 @@ class ShoesController < ApplicationController
     @shoe.price = params[:price]
     @shoe.description = params[:description]
     @shoe.supplier_id = params[:supplier_id]
+
+    @shoe.update(
+      brand: params[:brand],
+      price: params[:price],
+      description: params[:description],
+      supplier_id: params[:supplier_id]
+    )
+
+
     if @shoe.save
       flash[:success] = "You successfully updated a shoe!"
       redirect_to "/shoes/#{@shoe.id}"
